@@ -35,7 +35,7 @@ public class RelacionamentoPedidoTest {
 		pedido1.setProduto(liquidificador);
 		pedido1.setProduto(camisa);
 
-		Assertions.assertEquals(pedido1.getTotalProdutos(), 3);		
+		Assertions.assertEquals(3, pedido1.getTotalProdutos());		
 
 	}
 

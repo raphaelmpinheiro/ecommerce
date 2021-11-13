@@ -9,7 +9,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.Transient;
 
 @Entity
 public class Produto {
@@ -65,9 +68,9 @@ public class Produto {
 		this.categoria = categoria;
 	}
 
-	public List<Pedido> getPedidos() {
-		return pedidos;
-	}
+//	public List<Pedido> getPedidos() {
+//		return pedidos;
+//	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -96,7 +99,6 @@ public class Produto {
 	 * esta propriedade ficaria assim:
 	 * private List<Categoria> categoria;
 	 */
-	
-	
-	private List<Pedido> pedidos;
+//	@Transient	
+//	private List<Pedido> pedidos;
 }

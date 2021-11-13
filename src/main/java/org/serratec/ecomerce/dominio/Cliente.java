@@ -2,11 +2,14 @@ package org.serratec.ecomerce.dominio;
 
 import java.time.LocalDate;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
@@ -36,8 +39,33 @@ public class Cliente {
 	@CPF
 	private String cpf;
 	
-	@Embedded
+	@NotBlank
+	private String senha;	
+	
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name="id_endereco")
 	private Endereco endereco;
+	
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+
+	//Pode ser @OneToOne, 
+	//pois uma pessoa tem um endereço e um endereço pertence a uma pessoa.
+	//@Embedded
+	
 
 	public String getNome() {
 		return nome;
